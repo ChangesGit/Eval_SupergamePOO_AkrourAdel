@@ -35,7 +35,6 @@ class Controller{
 
     //METHODS
     public function render():void{
-        //On les passe à la vue et on display
         $this->view->displayAll();
     }
 }

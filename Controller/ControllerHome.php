@@ -10,27 +10,21 @@ class ControllerHome extends Controller {
     }
 
     public function registerPlayers():self {
-        //Vérifier si je reçoit le formulaire d'inscription
         if(isset($_POST['submitPlayer'])){
-            //Vérifier les champs vides
+            //On sanitize/trim avant pour éviter qu'un champs avec uniquement des espaces passe la vérification
 
             $pseudo = sanitize($_POST['pseudo']);
             $score = sanitize($_POST['score']);
             $idTeam = sanitize($_POST['id-team']);
 
-            if($pseudo || $score || $idTeam){
+            //On vérifie si un des champs est vide
+            if(empty($pseudo) || empty($score) || empty($idTeam)){
                 $this->getView()->setMessage('Veuillez remplir tous les champs.');
                 return $this;
             }
             
 
-            //Nettoyer les données
-            $pseudo = sanitize($_POST['pseudo']);
-            $score = sanitize($_POST['score']);
-            $idTeam = sanitize($_POST['id-team']);
-            
-
-            //Je vais fournir au modèle ces données
+            //On donne les données au modèle
             $this->getModel()->setPseudo($pseudo)->setScore($score)->setIdTeam($idTeam);
 
             
@@ -41,7 +35,7 @@ class ControllerHome extends Controller {
                 return $this;
             }
 
-            //Lancement de l'insertion en BDD
+            
             $this->getModel()->add();
 
             $this->getView()->setMessage("Vous avez bien été enregistré.");

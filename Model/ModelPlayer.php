@@ -16,41 +16,41 @@ class ModelPlayer extends Model {
     public function getId():int {
         return $this->id;
     }
-    public function setId(int $id):self {
-        $this->id = $id;
+    public function setId(int $newId):self {
+        $this->id = $newId;
         return $this;
     }
     public function getPseudo():string {
         return $this->pseudo;
     }
-    public function setPseudo(string $pseudo):self {
-        $this->pseudo = $pseudo;
+    public function setPseudo(string $newPseudo):self {
+        $this->pseudo = $newPseudo;
         return $this;
     }
     public function getScore():int {
         return $this->score;
     }
-    public function setScore(int $score):self {
-        $this->score = $score;
+    public function setScore(int $newScore):self {
+        $this->score = $newScore;
         return $this;
     }
     public function getTeam():string {
         return $this->team;
     }
-    public function setTeam(string $team):self {
-        $this->team = $team;
+    public function setTeam(string $newTeam):self {
+        $this->team = $newTeam;
         return $this;
     }
     public function getIdTeam():int {
         return $this->idTeam;
     }
-    public function setIdTeam(int $idTeam):self {
-        $this->idTeam = $idTeam;
+    public function setIdTeam(int $newIdTeam):self {
+        $this->idTeam = $newIdTeam;
         return $this;
     }
 
     //Methods
-    public function findAll() {
+    public function findAll():array {
         try{
             $req = $this->getBDD()->prepare('SELECT p.id_player, p.pseudo, p.score, t.team FROM player p INNER JOIN team t ON p.id_team = t.id_team');
 

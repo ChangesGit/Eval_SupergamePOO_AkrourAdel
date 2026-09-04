@@ -10,16 +10,16 @@ class ViewHome extends View {
     public function getMessage():string {
         return $this->message;
     }
-    public function setMessage(string $message):self {
-        $this->message = $message;
+    public function setMessage(string $newMessage):self {
+        $this->message = $newMessage;
         return $this;
     }
 
     public function getDatas():array {
         return $this->datas;
     }
-    public function setDatas(array $datas):self {
-        $this->datas = $datas;
+    public function setDatas(array $newDatas):self {
+        $this->datas = $newDatas;
         return $this;
     }
 
@@ -44,7 +44,7 @@ class ViewHome extends View {
             <ul>
 
         <?php  
-                // inclusion de la boucle foreach effectuer en 1. (plus haut) au sein du template HTML mis en buffer
+                
                 foreach($this->datas as $row){
 ?>
                     <li>Pseudo : <?= $row['pseudo'] ?> - Score : <?= $row['score'] ?> - Team : <?= $row['team'] ?></li>

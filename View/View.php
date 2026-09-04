@@ -29,7 +29,7 @@ class View {
     $this->buffer = $buffer;
     return $this;
    }
-   public function getLinkScript() {
+   public function getLinkScript():string {
     return $this->linkScript;
    }
    public function setLinkScript(string $linkScript):self {
@@ -74,7 +74,5 @@ class View {
         echo $this->buffer;
         return $this;
     }
-
-    //Affichage de l'entièreté de la page
     
 }
